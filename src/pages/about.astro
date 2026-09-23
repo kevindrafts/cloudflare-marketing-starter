@@ -1,0 +1,61 @@
+---
+import Layout from "../layouts/Layout.astro";
+import StudioArt from "../components/StudioArt.astro";
+import CTA from "../components/CTA.astro";
+---
+
+<Layout title="About">
+  <section class="container section">
+    <p class="eyebrow">The studio</p>
+    <h1 class="page-title">
+      Small team.
+      <br />
+      Wide-open thinking.
+    </h1>
+    <p class="lead">
+      We’re an independent studio for people building something meaningful.
+      Curious by default. Hands-on from day one.
+    </p>
+  </section>
+  <section class="container grid md:grid-cols-2 gap-16 items-center pb-24">
+    <StudioArt />
+    <div>
+      <h2 class="section-heading">A good fit matters.</h2>
+      <p class="lead">
+        We believe useful design starts with listening. We ask questions,
+        challenge assumptions, and make room for a better answer.
+      </p>
+      <p class="lead mt-5">
+        Forma is a fictional studio built to give your next website a thoughtful
+        starting point. Replace this story with your own: who you help, what you
+        care about, and how you work.
+      </p>
+    </div>
+  </section>
+  <section class="container divider section">
+    <p class="eyebrow">How we show up</p>
+    <div class="grid md:grid-cols-3 gap-10 mt-10">
+      {[
+        [
+          "Stay curious",
+          "Start with the question behind the question. Understand the people, the purpose, and the possibility.",
+        ],
+        [
+          "Make it useful",
+          "Choose clarity over noise. Build things that solve real problems and feel good to use.",
+        ],
+        [
+          "Care for the details",
+          "Good work is a thousand small decisions, made with intention. We pay attention.",
+        ],
+      ].map(([title, text], i) => (
+        <article>
+          <p class="eyebrow muted">0{i + 1}</p>
+          <h2 class="text-2xl my-5">{title}</h2>
+          <p class="muted leading-relaxed">{text}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+  <CTA />
+</Layout>

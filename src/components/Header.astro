@@ -1,0 +1,41 @@
+---
+import Logo from "./Logo.astro";
+const links = [
+  ["/about", "About"],
+  ["/services", "Services"],
+  ["/blog", "Journal"],
+];
+const active = (path: string) =>
+  Astro.url.pathname.replace(/\/$/, "").startsWith(path);
+---
+
+<header class="container flex flex-wrap items-center justify-between gap-5 py-7 border-b border-line">
+  <Logo />
+  <nav
+    aria-label="Main navigation"
+    class="hidden sm:flex items-center gap-8 text-sm font-medium"
+  >
+    {links.map(([href, label]) => (
+      <a
+        href={href}
+        aria-current={active(href) ? "page" : undefined}
+        class:list={["hover:underline", { underline: active(href) }]}
+      >
+        {label}
+      </a>
+    ))}
+    <a href="/contact" class="button !py-3 !px-5">
+      Let’s talk <span aria-hidden="true">↗</span>
+    </a>
+  </nav>
+  <details class="sm:hidden w-full">
+    <summary class="cursor-pointer py-2 font-medium">Menu</summary>
+    <nav aria-label="Mobile navigation" class="flex flex-col gap-4 py-4">
+      {[...links, ["/contact", "Let’s talk"]].map(([href, label]) => (
+        <a href={href} aria-current={active(href) ? "page" : undefined}>
+          {label}
+        </a>
+      ))}
+    </nav>
+  </details>
+</header>

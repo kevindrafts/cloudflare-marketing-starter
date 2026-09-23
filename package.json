@@ -1,0 +1,41 @@
+{
+  "name": "cloudflare-marketing-starter",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "packageManager": "pnpm@10.34.5",
+  "engines": {
+    "node": "24.x"
+  },
+  "scripts": {
+    "dev": "astro dev --host 127.0.0.1",
+    "build": "astro build",
+    "check": "astro check",
+    "test": "playwright test",
+    "preview": "wrangler dev --ip 127.0.0.1 --port 4321",
+    "deploy": "pnpm build && wrangler deploy",
+    "format": "prettier --write .",
+    "social:generate": "node scripts/social.mjs"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.10",
+    "@playwright/test": "1.63.0",
+    "@types/node": "24.13.6",
+    "prettier": "3.9.9",
+    "prettier-plugin-astro": "1.0.1",
+    "sharp": "0.35.4",
+    "typescript": "6.0.3",
+    "wrangler": "4.137.0"
+  },
+  "dependencies": {
+    "@astrojs/markdown-remark": "7.3.1",
+    "@astrojs/markdown-satteri": "0.4.2",
+    "@astrojs/mdx": "8.0.2",
+    "@astrojs/rss": "4.0.19",
+    "@astrojs/sitemap": "3.7.4",
+    "@tailwindcss/vite": "4.3.3",
+    "astro": "7.3.4",
+    "tailwindcss": "4.3.3"
+  }
+}

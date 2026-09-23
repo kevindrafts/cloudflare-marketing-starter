@@ -1,0 +1,50 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ServiceList from "../components/ServiceList.astro";
+import CTA from "../components/CTA.astro";
+---
+
+<Layout title="Services">
+  <section class="container section">
+    <p class="eyebrow">Our capabilities</p>
+    <h1 class="page-title">
+      From the big picture
+      <br />
+      to the small details.
+    </h1>
+    <p class="lead">
+      A focused set of services for the moments that matter. Start with one, or
+      bring us along for the whole journey.
+    </p>
+  </section>
+  <section class="container pb-20">
+    <ServiceList />
+  </section>
+  <section class="container divider section">
+    <p class="eyebrow">A simple process</p>
+    <h2 class="section-heading">Good work, without the guesswork.</h2>
+    <div class="grid md:grid-cols-3 gap-10 mt-12">
+      {[
+        [
+          "Discover",
+          "First, we listen. Together we define the opportunity, audience, and what success looks like.",
+        ],
+        [
+          "Shape",
+          "We explore directions, share work early, and turn a promising idea into a clear plan.",
+        ],
+        [
+          "Make",
+          "We design, build, test, and refine. Then we help your team take the next step with confidence.",
+        ],
+      ].map(([title, text], i) => (
+        <article class="border-t border-line pt-7">
+          <p class="eyebrow muted">Step 0{i + 1}</p>
+          <h3 class="text-2xl my-4">{title}</h3>
+          <p class="muted leading-relaxed">{text}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+  <CTA />
+</Layout>

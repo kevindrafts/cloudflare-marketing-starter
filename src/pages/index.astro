@@ -1,0 +1,81 @@
+---
+import Layout from "../layouts/Layout.astro";
+import StudioArt from "../components/StudioArt.astro";
+import ServiceList from "../components/ServiceList.astro";
+import CTA from "../components/CTA.astro";
+---
+
+<Layout>
+  <section class="container grid lg:grid-cols-2 gap-12 items-center py-16 lg:py-24">
+    <div>
+      <p class="eyebrow flex items-center gap-2">
+        <span class="h-2 w-2 rounded-full bg-ink"></span> Independent digital
+        studio
+      </p>
+      <h1 class="page-title">
+        Good ideas.
+        <br />
+        Great <span class="italic font-serif">potential.</span>
+      </h1>
+      <p class="lead">
+        We turn your next chapter into a brand, website, or digital experience
+        worth paying attention to.
+      </p>
+      <div class="flex flex-wrap gap-5 mt-9 items-center">
+        <a href="/services" class="button">
+          Explore our services <span aria-hidden="true">↗</span>
+        </a>
+        <a href="/about" class="text-sm underline">
+          Meet the studio
+        </a>
+      </div>
+      <p class="text-xs muted mt-12">Small by design. Thoughtful by nature.</p>
+    </div>
+    <StudioArt />
+  </section>
+  <section class="container divider py-8 flex flex-wrap gap-5 justify-between text-sm muted">
+    <p>Made for teams with something to say.</p>
+    <div class="flex flex-wrap gap-8 font-semibold text-ink">
+      <span>New ventures</span>
+      <span>Growing businesses</span>
+      <span>Fresh perspectives</span>
+    </div>
+  </section>
+  <section class="container section">
+    <div class="grid md:grid-cols-2 gap-10 mb-14">
+      <div>
+        <p class="eyebrow">What we bring</p>
+        <h2 class="section-heading">
+          Clear thinking.
+          <br />
+          Careful making.
+        </h2>
+      </div>
+      <p class="lead self-end">
+        The best work happens when strategy and craft share a table. We connect
+        the dots from your first big question to your last small detail.
+      </p>
+    </div>
+    <ServiceList />
+  </section>
+  <section class="bg-[#e5e9df] section mb-20">
+    <div class="container grid md:grid-cols-2 gap-12">
+      <p class="eyebrow">A different kind of partnership</p>
+      <div>
+        <h2 class="section-heading !mt-0">
+          Less overhead.
+          <br />
+          More hands-on.
+        </h2>
+        <p class="lead">
+          Work directly with the people doing the work. We keep our team small,
+          our process open, and our attention on what matters to you.
+        </p>
+        <a href="/about" class="inline-block mt-8 underline">
+          Get to know Forma ↗
+        </a>
+      </div>
+    </div>
+  </section>
+  <CTA />
+</Layout>

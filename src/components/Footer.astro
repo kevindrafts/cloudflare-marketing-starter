@@ -1,0 +1,28 @@
+---
+import Logo from "./Logo.astro";
+import { site } from "../data/site";
+---
+
+<footer class="container py-10 border-t border-line">
+  <div class="flex flex-wrap items-center justify-between gap-8">
+    <Logo />
+    <p class="muted text-sm">Good things start with a conversation.</p>
+    <a href={`mailto:${site.email}`} class="underline">
+      {site.email} ↗
+    </a>
+  </div>
+  <div class="flex flex-wrap justify-between gap-4 text-xs muted mt-12">
+    <p>
+      © {new Date().getFullYear()} {site.name}. Built with care.
+    </p>
+    <div class="flex gap-6">
+      <a href="/rss.xml">RSS feed</a>
+      <a href="https://github.com/kevindrafts/cloudflare-marketing-starter">
+        Open source starter ↗
+      </a>
+    </div>
+  </div>
+  <p class="text-xs muted mt-5">
+    Forma is a fictional studio. Make this starter your own.
+  </p>
+</footer>

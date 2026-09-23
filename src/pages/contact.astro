@@ -1,0 +1,52 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { site } from "../data/site";
+---
+
+<Layout title="Contact">
+  <section class="container section">
+    <p class="eyebrow">Say hello</p>
+    <h1 class="page-title">
+      Every good thing
+      <br />
+      starts somewhere.
+    </h1>
+    <p class="lead">
+      A new idea, a tricky question, or a project ready to go. We’d love to hear
+      what you have in mind.
+    </p>
+    <a
+      class="button mt-9"
+      href={`mailto:${site.email}?subject=Let%E2%80%99s%20make%20something`}
+    >
+      Email the studio <span aria-hidden="true">↗</span>
+    </a>
+  </section>
+  <section class="container grid md:grid-cols-2 gap-12 pb-24">
+    <div class="bg-[#e5e9df] rounded-3xl p-9 md:p-12">
+      <p class="eyebrow">A direct line</p>
+      <a
+        class="block text-2xl md:text-3xl mt-6 underline break-all"
+        href={`mailto:${site.email}`}
+      >
+        {site.email}
+      </a>
+      <p class="muted mt-6">{site.location}</p>
+      <p class="muted text-sm mt-8">
+        This starter opens your email app. Replace the example email in{" "}
+        <code>src/data/site.ts</code> before launch.
+      </p>
+    </div>
+    <div class="p-4 md:p-8">
+      <h2 class="section-heading !text-3xl !mt-0">A few things to include</h2>
+      <ul class="space-y-5 muted">
+        <li>01 — A little about your business or idea</li>
+        <li>02 — What you’d like to make or improve</li>
+        <li>03 — Your timeline and a rough budget</li>
+      </ul>
+      <p class="mt-8 muted leading-relaxed">
+        Still figuring it out? That’s a good place to start, too.
+      </p>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,39 @@
+---
+import { getCollection, render } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+export async function getStaticPaths() {
+  return (await getCollection("blog", ({ data }) => !data.draft)).map(
+    (post) => ({ params: { slug: post.id }, props: { post } }),
+  );
+}
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<Layout title={post.data.title} description={post.data.description} article>
+  <article class="container section">
+    <div class="max-w-[850px] mx-auto">
+      <a href="/blog" class="text-sm underline">
+        ← Back to the journal
+      </a>
+      <p class="eyebrow mt-12">
+        {post.data.category} ·{" "}
+        <time datetime={post.data.date.toISOString()}>
+          {post.data.date.toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+            timeZone: "UTC",
+          })}
+        </time>
+      </p>
+      <h1 class="page-title !text-[clamp(2.7rem,6vw,5rem)]">
+        {post.data.title}
+      </h1>
+      <p class="lead !text-xl mb-12">{post.data.description}</p>
+      <div class="prose muted">
+        <Content />
+      </div>
+    </div>
+  </article>
+</Layout>
