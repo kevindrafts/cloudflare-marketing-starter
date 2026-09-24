@@ -39,16 +39,16 @@ No React, authentication, database, SSR adapter, or mandatory hosted service is 
 
 ## Make it yours
 
-| Change                                    | File                                                           |
-| ----------------------------------------- | -------------------------------------------------------------- |
-| Studio name, email, description, services | `src/data/site.ts`                                             |
-| Colors, fonts, spacing, prose styles      | `src/styles/global.css`                                        |
-| Page content                              | `src/pages/*.astro`                                            |
-| Header/footer branding and SVG wordmark   | `src/components/Logo.astro`, `Header.astro`, `Footer.astro`    |
-| Blog entries                              | `src/content/blog/*.{md,mdx}`                                  |
-| Content schema                            | `src/content.config.ts`                                        |
-| Social artwork and favicon                | `public/social.svg`, `public/social.png`, `public/favicon.svg` |
-| Cloudflare Worker name                    | `wrangler.json`                                                |
+| Change                                    | File                                                        |
+| ----------------------------------------- | ----------------------------------------------------------- |
+| Studio name, email, description, services | `src/data/site.ts`                                          |
+| Colors, fonts, spacing, prose styles      | `src/styles/global.css`                                     |
+| Page content                              | `src/pages/*.astro`                                         |
+| Header/footer branding and SVG wordmark   | `src/components/Logo.astro`, `Header.astro`, `Footer.astro` |
+| Blog entries                              | `src/content/blog/*.{md,mdx}`                               |
+| Content schema                            | `src/content.config.ts`                                     |
+| Social artwork and favicon                | `scripts/assets/` (templates); `public/` (generated files)  |
+| Cloudflare Worker name                    | `wrangler.json`                                             |
 
 Some display copy and artwork say “Forma” directly; search for `Forma` / `forma` when rebranding. Replace `hello@example.com` before launch. The contact page opens an email client and does not collect or pretend to submit form data.
 
@@ -68,11 +68,15 @@ Files marked `draft: true` are excluded from journal pages, generated article ro
 
 Set the public origin before building for production. Copy `.env.example` to `.env` and change `SITE_URL`, or set it in the build environment. It drives canonical URLs, RSS, robots, and sitemap. The default `https://example.com` is deliberately a placeholder.
 
-Regenerate the social PNG after editing `public/social.svg`:
+All UI colors are named tokens in the `@theme` block of `src/styles/global.css`, including surfaces, focus/hover states, and illustration colors. Use classes such as `bg-surface` or `fill="var(--color-accent)"` when extending the design. The browser theme color also follows `--color-ink`.
+
+Standalone favicons and social previews cannot inherit page CSS. Their templates in `scripts/assets/` use `{{color-ink}}`-style references; `pnpm dev` and `pnpm build` regenerate the files in `public/` from the same palette. Keep those referenced color tokens as literal hex values. Edit the templates for artwork/text changes, and commit regenerated assets. To refresh them after a palette edit while the dev server is running:
 
 ```sh
-pnpm social:generate
+pnpm brand:generate
 ```
+
+`pnpm social:generate` remains an alias for regenerating all brand assets.
 
 ## Commands
 

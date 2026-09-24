@@ -28,7 +28,7 @@ const posts = (await getCollection("blog", ({ data }) => !data.draft)).sort(
           <div
             class:list={[
               "rounded-2xl aspect-[4/3] mb-7 flex items-center justify-center overflow-hidden",
-              i === 0 ? "bg-[#e5e9df]" : i === 1 ? "bg-accent" : "bg-ink",
+              i === 0 ? "bg-surface" : i === 1 ? "bg-accent" : "bg-ink",
             ]}
             aria-hidden="true"
           >

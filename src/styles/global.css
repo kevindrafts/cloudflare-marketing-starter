@@ -5,6 +5,12 @@
   --color-muted: #52635c;
   --color-accent: #f0a689;
   --color-line: #d7ddd4;
+  --color-surface: #e5e9df;
+  --color-ink-hover: #28574e;
+  --color-on-ink: #ffffff;
+  --color-focus: #bd512a;
+  --color-art-grid: #ced6c9;
+  --color-accent-strong: #bf6545;
   --font-sans: "Arial", "Helvetica Neue", sans-serif;
 }
 :root {
@@ -36,11 +42,11 @@ a {
   -webkit-tap-highlight-color: transparent;
 }
 :focus-visible {
-  outline: 3px solid #bd512a;
+  outline: 3px solid var(--color-focus);
   outline-offset: 5px;
 }
 ::selection {
-  background: #f0a689;
+  background: var(--color-accent);
 }
 .container {
   width: min(1180px, calc(100% - 48px));
@@ -63,7 +69,7 @@ a {
   padding: 1rem 1.5rem;
   border-radius: 999px;
   background: var(--color-ink);
-  color: white;
+  color: var(--color-on-ink);
   font-weight: 600;
   text-decoration: none;
   border: 1px solid var(--color-ink);
@@ -73,7 +79,7 @@ a {
 }
 .button:hover {
   transform: translateY(-2px);
-  background: #28574e;
+  background: var(--color-ink-hover);
 }
 .button.secondary {
   background: transparent;
@@ -129,7 +135,7 @@ a {
   padding-left: 1.4rem;
 }
 .prose code {
-  background: #e5e9df;
+  background: var(--color-surface);
   padding: 0.15rem 0.4rem;
   border-radius: 0.25rem;
 }

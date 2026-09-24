@@ -1,5 +1,7 @@
 ---
 import "../styles/global.css";
+import palette from "../styles/global.css?raw";
+const themeColor = palette.match(/--color-ink:\s*([^;]+);/)?.[1].trim();
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { site } from "../data/site";
@@ -30,7 +32,7 @@ const socialImage = new URL(image, Astro.site);
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#183b36" />
+    <meta name="theme-color" content={themeColor} />
     <title>{fullTitle}</title>
     <link rel="canonical" href={canonical} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -56,7 +58,7 @@ const socialImage = new URL(image, Astro.site);
   </head>
   <body>
     <a
-      class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:bg-white focus:p-4"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:bg-paper focus:p-4"
       href="#main"
     >
       Skip to content

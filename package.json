@@ -9,14 +9,15 @@
     "node": "24.x"
   },
   "scripts": {
-    "dev": "astro dev --host 127.0.0.1",
-    "build": "astro build",
+    "dev": "pnpm brand:generate && astro dev --host 127.0.0.1",
+    "build": "pnpm brand:generate && astro build",
     "check": "astro check",
     "test": "playwright test",
     "preview": "wrangler dev --ip 127.0.0.1 --port 4321",
     "deploy": "pnpm build && wrangler deploy",
     "format": "prettier --write .",
-    "social:generate": "node scripts/social.mjs"
+    "social:generate": "pnpm brand:generate",
+    "brand:generate": "node scripts/brand-assets.mjs"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.10",
